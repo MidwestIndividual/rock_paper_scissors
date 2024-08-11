@@ -1,4 +1,5 @@
-
+let humanScore = 0;
+let computerScore = 0;
 
 // Returns 0, 1, or 2 corresponding to rock, paper, or scissor
 function getComputerChoice() {

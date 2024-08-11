@@ -32,3 +32,8 @@ function playRound(humanChoice, computerChoice) {
     }
     console.log(message);
 }
+
+const humanSelection = getHumanChoice();
+const computerSelection = getComputerChoice();
+
+playRound(humanSelection, computerSelection);

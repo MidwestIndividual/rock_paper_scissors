@@ -10,3 +10,25 @@ function getComputerChoice() {
 function getHumanChoice() {
     return prompt("Rock, paper, or scissors?");
 }
+
+function playRound(humanChoice, computerChoice) {
+    message = '';
+    switch(computerChoice) {
+        case 0:
+            message = (humanChoice.toUpperCase() === 'ROCK') ? 'Tie! Rock matches rock!' :
+                (humanChoice.toUpperCase() === 'PAPER') ? 'You win! Paper beats rock!' :
+                'You lose! Rock beats scissors!';
+            break;
+        case 1:
+            message = (humanChoice.toUpperCase() === 'ROCK') ? 'You lose! Paper beats rock!' :
+                (humanChoice.toUpperCase() === 'PAPER') ? 'Tie! Paper matches paper!' :
+                'You win! Scissors beats rock!';
+            break;
+        case 2:
+            message = (humanChoice.toUpperCase() === 'ROCK') ? 'You win! Rock beats scissors!' :
+                (humanChoice.toUpperCase() === 'PAPER') ? 'You lose! Scissors beats paper!' :
+                'Tie! Scissors matches scissors!';
+            break;
+    }
+    console.log(message);
+}

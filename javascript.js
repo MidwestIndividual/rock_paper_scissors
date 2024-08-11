@@ -1,5 +1,4 @@
-let humanScore = 0;
-let computerScore = 0;
+const FIVE_ROUNDS = 5;
 
 // Returns 0, 1, or 2 corresponding to rock, paper, or scissor
 function getComputerChoice() {
@@ -33,7 +32,16 @@ function playRound(humanChoice, computerChoice) {
     console.log(message);
 }
 
-const humanSelection = getHumanChoice();
-const computerSelection = getComputerChoice();
+function playGame(numberOfRounds) {
+    let humanScore = 0;
+    let computerScore = 0;
 
-playRound(humanSelection, computerSelection);
+    for (i = 0; i < numberOfRounds; i++) {
+        const humanSelection = getHumanChoice();
+        const computerSelection = getComputerChoice();
+        
+        playRound(humanSelection, computerSelection);
+    }
+}
+
+playGame(FIVE_ROUNDS);

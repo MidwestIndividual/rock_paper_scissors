@@ -61,7 +61,13 @@ function playGame(numberOfRounds) {
         let winner = '';
         
         winner = playRound(humanSelection, computerSelection);
+
+        humanScore += (winner === 'Human') ? 1 : 0;
+        computerScore += (winner === 'Computer') ? 1 : 0;
     }
+
+    console.log(humanScore);
+    console.log(computerScore);
 }
 
 playGame(FIVE_ROUNDS);

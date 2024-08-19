@@ -50,6 +50,7 @@ function playRound(humanChoice, computerChoice) {
     return winner;
 }
 
+/*
 function playGame(numberOfRounds) {
     let humanScore = 0;
     let computerScore = 0;
@@ -69,6 +70,11 @@ function playGame(numberOfRounds) {
     console.log(humanScore);
     console.log(computerScore);
 }
+*/
+
+let humanScore = 0;
+let computerScore = 0;
+let numberOfGames = 0;
 
 document.querySelector(".button-holder").addEventListener("click", (event) => {
     let humanChoice;
@@ -79,11 +85,17 @@ document.querySelector(".button-holder").addEventListener("click", (event) => {
         case 'rock':
         case 'paper':
         case 'scissors':
+            numberOfGames += 1;
             humanChoice = event.target.className;
             winner = playRound(humanChoice, computerChoice);
             console.log(winner);
             break;
         default:
-            console.log(event.target.className);
+            break;
     }
+
+    humanScore += (winner === 'Human') ? 1 : 0;
+    computerScore += (winner === 'Computer') ? 1 : 0;
+
+    console.log(`Human: ${humanScore}, Computer: ${computerScore}, Number of Games Played: ${numberOfGames}`)
 });

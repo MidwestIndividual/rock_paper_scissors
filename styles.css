@@ -3,7 +3,8 @@
     margin: 0;
 }
 
-.button-holder {
+.button-holder, 
+.results-holder {
     display: flex;
     background-color: grey;
     justify-content: center;
@@ -24,4 +25,10 @@ button {
 
 body {
     background-color: lightgray;
+}
+
+p {
+    font-size: large;
+    font-weight: bold;
+    color: white;
 }

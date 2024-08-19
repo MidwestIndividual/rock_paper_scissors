@@ -69,3 +69,21 @@ function playGame(numberOfRounds) {
     console.log(humanScore);
     console.log(computerScore);
 }
+
+document.querySelector(".button-holder").addEventListener("click", (event) => {
+    let humanChoice;
+    let winner;
+    const computerChoice = getComputerChoice();
+
+    switch(event.target.className) {
+        case 'rock':
+        case 'paper':
+        case 'scissors':
+            humanChoice = event.target.className;
+            winner = playRound(humanChoice, computerChoice);
+            console.log(winner);
+            break;
+        default:
+            console.log(event.target.className);
+    }
+});

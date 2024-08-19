@@ -69,5 +69,3 @@ function playGame(numberOfRounds) {
     console.log(humanScore);
     console.log(computerScore);
 }
-
-playGame(FIVE_ROUNDS);

@@ -51,11 +51,17 @@ function generateRoundMessage(humanChoice, computerChoice) {
     return message;
 }
 
+function generateScore(humanWins, computerWins) {
+    return `${humanWins} - ${computerWins}`;
+}
+
 let humanScore = 0;
 let computerScore = 0;
 let numberOfGames = 0;
 
 para = document.querySelector(".results");
+numberGamesElement = document.querySelector(".game-number-holder > .score-board-number");
+scoreElement = document.querySelector(".score-holder > .score-board-number");
 
 document.querySelector(".button-holder").addEventListener("click", (event) => {
     let humanChoice;
@@ -78,6 +84,8 @@ document.querySelector(".button-holder").addEventListener("click", (event) => {
     computerScore += (winner === 'Computer') ? 1 : 0;
 
     para.textContent = generateRoundMessage(humanChoice, computerChoice);
+    numberGamesElement.textContent = `${numberOfGames}`;
+    scoreElement.textContent = generateScore(humanScore, computerScore);
 
     console.log(`Human: ${humanScore}, Computer: ${computerScore}, Number of Games Played: ${numberOfGames}`)
 });

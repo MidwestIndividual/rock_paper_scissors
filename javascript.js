@@ -11,26 +11,6 @@ function getHumanChoice() {
 }
 
 function playRound(humanChoice, computerChoice) {
-    let message = '';
-    switch(computerChoice) {
-        case 0:
-            message = (humanChoice.toUpperCase() === 'ROCK') ? 'Tie! Rock matches rock!' :
-                (humanChoice.toUpperCase() === 'PAPER') ? 'You win! Paper beats rock!' :
-                'You lose! Rock beats scissors!';
-            
-            break;
-        case 1:
-            message = (humanChoice.toUpperCase() === 'ROCK') ? 'You lose! Paper beats rock!' :
-                (humanChoice.toUpperCase() === 'PAPER') ? 'Tie! Paper matches paper!' :
-                'You win! Scissors beats rock!';
-            break;
-        case 2:
-            message = (humanChoice.toUpperCase() === 'ROCK') ? 'You win! Rock beats scissors!' :
-                (humanChoice.toUpperCase() === 'PAPER') ? 'You lose! Scissors beats paper!' :
-                'Tie! Scissors matches scissors!';
-            break;
-    }
-
     let parsedHumanChoice = (humanChoice.toUpperCase() === 'ROCK') ? 0 :
         (humanChoice.toUpperCase() === 'PAPER') ? 1 :
         2;
@@ -70,28 +50,6 @@ function generateRoundMessage(humanChoice, computerChoice) {
     }
     return message;
 }
-
-/*
-function playGame(numberOfRounds) {
-    let humanScore = 0;
-    let computerScore = 0;
-
-    for (i = 0; i < numberOfRounds; i++) {
-        const humanSelection = getHumanChoice();
-        const computerSelection = getComputerChoice();
-
-        let winner = '';
-        
-        winner = playRound(humanSelection, computerSelection);
-
-        humanScore += (winner === 'Human') ? 1 : 0;
-        computerScore += (winner === 'Computer') ? 1 : 0;
-    }
-
-    console.log(humanScore);
-    console.log(computerScore);
-}
-*/
 
 let humanScore = 0;
 let computerScore = 0;

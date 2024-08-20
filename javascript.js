@@ -55,6 +55,16 @@ function generateScore(humanWins, computerWins) {
     return `${humanWins} - ${computerWins}`;
 }
 
+function generateFiveGameMessage(humanWins, computerWins) {
+    if (humanWins > computerWins) {
+        return 'You have beaten the computer!';
+    } else if (humanWins == computerWins) {
+        return 'Tie! You and the computer are a perfect match!';
+    } else {
+        return 'The computer beats you, try again!';
+    }
+}
+
 let fiveGamesPassed = new CustomEvent('fiveGamesPassed', {});
 
 let humanScore = 0;
@@ -90,10 +100,9 @@ document.querySelector(".button-holder").addEventListener("click", (event) => {
     scoreElement.textContent = generateScore(humanScore, computerScore);
 
     if (numberOfGames == 5) {para.dispatchEvent(fiveGamesPassed);}
-
-    console.log(`Human: ${humanScore}, Computer: ${computerScore}, Number of Games Played: ${numberOfGames}`)
 });
 
 para.addEventListener('fiveGamesPassed', (event) => {
-    console.log("Five Games Passed!");
+    let message = generateFiveGameMessage(humanScore, computerScore);
+    alert(message);
 })

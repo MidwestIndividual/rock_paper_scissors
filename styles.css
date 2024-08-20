@@ -46,4 +46,25 @@ p {
     align-self: center;
     align-items: center;
     width: 200px;
+    gap: 10px;
+}
+
+.game-number-holder {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.score-holder {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.score-board-text {
+    font-size: small;
+}
+
+.score-board-number {
+    font-size: 25px;
 }

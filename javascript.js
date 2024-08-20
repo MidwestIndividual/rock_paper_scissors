@@ -55,6 +55,8 @@ function generateScore(humanWins, computerWins) {
     return `${humanWins} - ${computerWins}`;
 }
 
+let fiveGamesPassed = new CustomEvent('fiveGamesPassed', {});
+
 let humanScore = 0;
 let computerScore = 0;
 let numberOfGames = 0;
@@ -77,7 +79,7 @@ document.querySelector(".button-holder").addEventListener("click", (event) => {
             winner = playRound(humanChoice, computerChoice);
             break;
         default:
-            break;
+            return;
     }
 
     humanScore += (winner === 'Human') ? 1 : 0;
@@ -87,5 +89,11 @@ document.querySelector(".button-holder").addEventListener("click", (event) => {
     numberGamesElement.textContent = `${numberOfGames}`;
     scoreElement.textContent = generateScore(humanScore, computerScore);
 
+    if (numberOfGames == 5) {para.dispatchEvent(fiveGamesPassed);}
+
     console.log(`Human: ${humanScore}, Computer: ${computerScore}, Number of Games Played: ${numberOfGames}`)
 });
+
+para.addEventListener('fiveGamesPassed', (event) => {
+    console.log("Five Games Passed!");
+})
